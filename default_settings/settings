@@ -1,0 +1,17 @@
+autoIndent:true
+autoComplete:true
+syntaxHighlighting:true
+autoCloseBrackets:true
+tabSpace:4
+showUnsaved:true
+autoSave:false
+autoBackup:false
+//defaultText:text you want in a new document
+autoCloseBraces:true
+autoCloseQutoes:true
+autoCloseSingleQuotes:true
+quotesAroundSelection:true
+bracketsAroundSelection:true
+bracesAroundSelection:true
+saveOpenDocuments:false
+saveDialogOnExit:true
