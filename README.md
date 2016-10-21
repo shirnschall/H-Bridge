@@ -16,6 +16,7 @@ Still a messy codebase, but once every feature is working properly I will work o
 - [ ] serial monitor
 - [ ] upload to isp
 - [ ] parse header files for autocompletion
+- [ ] update routine
 - [ ] lib manager
 - [ ] git integration
 - [ ] extensions
