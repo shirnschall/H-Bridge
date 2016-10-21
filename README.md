@@ -10,12 +10,12 @@ Still a messy codebase, but once every feature is working properly I will work o
 - [x] autocomplete
 - [x] autocomplete var names
 - [x] edit multiple files at once
-- [ ] settings json file
+- [ ] settings (maybe json)
 - [ ] autosave backup
 - [ ] compiler
 - [ ] serial monitor
 - [ ] uploadt to isp
-- [ ] parse header files for autocomplete
+- [ ] parse header files for autocompletion
 - [ ] lib manager
 - [ ] git integration
 - [ ] extensions
