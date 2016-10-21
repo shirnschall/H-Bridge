@@ -152,6 +152,7 @@
     <addaction name="actionSearch"/>
     <addaction name="separator"/>
     <addaction name="actionSettings"/>
+    <addaction name="actionThemes"/>
     <addaction name="actionStyle"/>
     <addaction name="actionAutocomplete"/>
    </widget>
@@ -313,6 +314,11 @@
    </property>
    <property name="shortcut">
     <string>Shift+F5</string>
+   </property>
+  </action>
+  <action name="actionThemes">
+   <property name="text">
+    <string>Themes</string>
    </property>
   </action>
  </widget>

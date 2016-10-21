@@ -50,7 +50,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->toolBar->addWidget(ui->lineEdit);
 
     //set style:
-    setStyleSheet(getFileContent("style.css").c_str());
+    setStyleSheet(getFileContent("themes/default-dark.css").c_str());
     //setsettings/autocomplete
     getSettings();
 
@@ -428,7 +428,7 @@ void MainWindow::getSettings()
 
 void MainWindow::on_actionStyle_triggered()
 {
-    openFile("style.css");
+    openFile("themes/default-dark.css");
 }
 
 void MainWindow::on_actionSettings_triggered()
@@ -567,4 +567,9 @@ void MainWindow::parseText()
         }
     }
     }
+}
+
+void MainWindow::on_actionThemes_triggered()
+{
+
 }
