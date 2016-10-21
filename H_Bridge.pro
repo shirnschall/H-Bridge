@@ -17,23 +17,17 @@ SOURCES += main.cpp\
     codeeditor.cpp \
     highlighter.cpp \
     searchbox.cpp \
-    serialmonitor.cpp \
-    autocompleter.cpp \
-    filebrowser.cpp
+    serialmonitor.cpp
 
 HEADERS  += mainwindow.h \
     codeeditor.h \
     highlighter.h \
     searchbox.h \
-    serialmonitor.h \
-    autocompleter.h \
-    filebrowser.h
+    serialmonitor.h
 
 FORMS    += mainwindow.ui \
     searchbox.ui \
-    serialmonitor.ui \
-    autocompleter.ui \
-    filebrowser.ui
+    serialmonitor.ui
 
 RESOURCES += \
     recources.qrc
