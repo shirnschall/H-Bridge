@@ -17,3 +17,4 @@ Still a messy codebase, but once every feature is working properly I will work o
 - [ ] uploadt to isp
 - [ ] parse header files for autocomplete
 - [ ] git integration
+- [ ] extensions
