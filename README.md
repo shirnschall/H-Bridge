@@ -1,7 +1,7 @@
 # H-Bridge
 Fully customizable Code Editor for AVR-C written in C++ Qt
 
-A very early version of an awesome editor...
+A very early version of an awesome editor...     
 Still a messy codebase, but once every feature is working properly I will work on a rewrite.
 ##Status
 - [x] customizable layout
