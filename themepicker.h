@@ -15,6 +15,9 @@ public:
     explicit ThemePicker(QWidget *parent = 0);
     ~ThemePicker();
 
+private slots:
+    void on_buttonBox_accepted();
+
 private:
     Ui::ThemePicker *ui;
 };

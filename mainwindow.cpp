@@ -3,8 +3,10 @@
 #include "filebrowser.h"
 #include "searchbox.h"
 #include "serialmonitor.h"
-
+#include <themepicker.h>
 #include <codeeditor.h>
+
+
 #include <stdlib.h>
 #include <fstream>
 #include <iostream>
@@ -50,7 +52,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->toolBar->addWidget(ui->lineEdit);
 
     //set style:
-    setStyleSheet(getFileContent("themes/default-dark.css").c_str());
+    setStyleSheet(getFileContent("themes/default.css").c_str());
     //setsettings/autocomplete
     getSettings();
 
@@ -428,7 +430,7 @@ void MainWindow::getSettings()
 
 void MainWindow::on_actionStyle_triggered()
 {
-    openFile("themes/default-dark.css");
+    openFile("themes/default.css");
 }
 
 void MainWindow::on_actionSettings_triggered()
@@ -571,5 +573,8 @@ void MainWindow::parseText()
 
 void MainWindow::on_actionThemes_triggered()
 {
-
+    ThemePicker themeDialog;
+    themeDialog.setModal(true);
+    themeDialog.exec();
+    setStyleSheet(getFileContent("themes/default.css").c_str());
 }
