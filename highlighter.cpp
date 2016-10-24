@@ -39,8 +39,6 @@
 ****************************************************************************/
 
 #include "highlighter.h"
-#include <fstream>
-
 
 Highlighter::Highlighter(QTextDocument *parent)
     : QSyntaxHighlighter(parent)
@@ -121,25 +119,8 @@ Highlighter::Highlighter(QTextDocument *parent)
                   << "<threads.h>"
                   << "<uchar.h>";
 
-    //read styles:
-    std::vector<std::string> colors;
-
-    std::string tmp;
-    std::ifstream in;
-    in.open("themes/highlighter.css");
-    if(in.is_open())
-    {
-        while(std::getline(in,tmp))
-        {
-            if(tmp[0]!='/'&&tmp[1]!='/'&&tmp!=""&&tmp.length()>2)
-                colors.push_back(tmp);
-        }
-    }
-    in.close();
-
-
     //LIBRARIES
-    libraryFormat.setForeground(QColor(colors.at(0).c_str()));
+    libraryFormat.setForeground(QColor(144,144,144));
     foreach (const QString &pattern, libraries) {
         rule.pattern = QRegExp(pattern);
         rule.format = libraryFormat;
@@ -147,33 +128,33 @@ Highlighter::Highlighter(QTextDocument *parent)
     }
 
     //#INCLUDE
-    includeFormat.setForeground(QColor(colors.at(1).c_str()));
+    includeFormat.setForeground(QColor(144,144,144));
     rule.pattern = QRegExp("#include\\b");
     rule.format = includeFormat;
     highlightingRules.append(rule);
 
 
     //QUOTATION
-    quotationFormat.setForeground(QColor(colors.at(2).c_str()));
+    quotationFormat.setForeground(QColor(214,157,133));
     rule.pattern = QRegExp("\"([^\"]*)\"");
     rule.format = quotationFormat;
     highlightingRules.append(rule);
 
     //singleQUOTATION
-    squotationFormat.setForeground(QColor(colors.at(3).c_str()));
+    squotationFormat.setForeground(QColor(214,157,133));
     rule.pattern = QRegExp("\'([^\']*)\'");
     rule.format = squotationFormat;
     highlightingRules.append(rule);
 
     //FUNCTIONS
     functionFormat.setFontItalic(true);
-    functionFormat.setForeground(QColor(colors.at(4).c_str()));
+    functionFormat.setForeground(QColor(78,201,176));
     rule.pattern = QRegExp("\\b[A-Za-z0-9_]+(?=\\()");
     rule.format = functionFormat;
     highlightingRules.append(rule);
 
     //GENERAL
-    keywordFormat.setForeground(QColor(colors.at(5).c_str()));
+    keywordFormat.setForeground(QColor(86,156,214));
     foreach (const QString &pattern, keywordPatterns) {
         rule.pattern = QRegExp(pattern);
         rule.format = keywordFormat;
@@ -181,12 +162,12 @@ Highlighter::Highlighter(QTextDocument *parent)
     }
 
     //COMMENTS
-    singleLineCommentFormat.setForeground(QColor(colors.at(6).c_str()));
+    singleLineCommentFormat.setForeground(QColor(87,166,74));
     rule.pattern = QRegExp("//[^\n]*");
     rule.format = singleLineCommentFormat;
     highlightingRules.append(rule);
 
-    multiLineCommentFormat.setForeground(QColor(colors.at(7).c_str()));
+    multiLineCommentFormat.setForeground(QColor(87,166,74));
 
 
     commentStartExpression = QRegExp("/\\*");

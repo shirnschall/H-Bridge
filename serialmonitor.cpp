@@ -1,6 +1,5 @@
 #include "serialmonitor.h"
 #include "ui_serialmonitor.h"
-#include <fstream>
 
 serialMonitor::serialMonitor(QWidget *parent) :
     QWidget(parent),

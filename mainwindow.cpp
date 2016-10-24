@@ -68,7 +68,6 @@ MainWindow::MainWindow(QWidget *parent) :
     //ui->plainTextEdit->setVisible(false);
     //ui->treeWidget->setVisible(false);
     ui->widget->setVisible(false);
-    ui->widget->setStyleSheet(getFileContent("themes/serialmonitor.css").c_str());
 
     //start parseText as a new thread and continue searching for new vars/functions etc
     std::thread t1(&MainWindow::parseText,this);
