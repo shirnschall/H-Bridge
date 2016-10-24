@@ -52,7 +52,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->toolBar->addWidget(ui->lineEdit);
 
     //set style:
-    setStyleSheet(getFileContent("themes/default.css").c_str());
+    setStyleSheet(getFileContent("themes/main.css").c_str());
     //setsettings/autocomplete
     getSettings();
 
@@ -430,7 +430,7 @@ void MainWindow::getSettings()
 
 void MainWindow::on_actionStyle_triggered()
 {
-    openFile("themes/default.css");
+    openFile("themes/main.css");
 }
 
 void MainWindow::on_actionSettings_triggered()
@@ -574,7 +574,8 @@ void MainWindow::parseText()
 void MainWindow::on_actionThemes_triggered()
 {
     ThemePicker themeDialog;
+    themeDialog.setStyleSheet(getFileContent("themes/default-themepicker.css").c_str());
     themeDialog.setModal(true);
     themeDialog.exec();
-    setStyleSheet(getFileContent("themes/default.css").c_str());
+    setStyleSheet(getFileContent("themes/main.css").c_str());
 }

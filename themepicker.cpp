@@ -4,6 +4,7 @@
 
 #include <fstream>
 
+#include <QRegularExpression>
 #include <QDirIterator>
 #include <QFile>
 
@@ -18,7 +19,7 @@ ThemePicker::ThemePicker(QWidget *parent) :
     QDirIterator it("themes/", QDirIterator::Subdirectories);
     while (it.hasNext()) {
         it.next();
-        if(it.fileName()!="." && it.fileName()!=".." && it.fileName()!="default.css")
+        if(it.fileName()!="." && it.fileName()!=".." && it.fileName()!="main.css"&& it.fileName()!="codeeditor.css"&& it.fileName()!="themepicker.css")
             ui->listWidget->addItem(it.fileName());
     }
 }
@@ -30,27 +31,38 @@ ThemePicker::~ThemePicker()
 
 void ThemePicker::on_buttonBox_accepted()
 {
+    std::vector<QString> files{"main.css","themepicker.css","codeeditor.css"};
 
-    if(QFile::remove("themes/default.css"))
+    std::string path = "themes/" + ui->listWidget->currentItem()->text().toStdString();
+    //replace default.css with new style
+    for(int i=0;i<3;++i)
     {
-        std::string style="";
-        std::string tmp;
-        std::ifstream in;
-        in.open("themes/"+ui->listWidget->currentItem()->text().toStdString());
-        if(in.is_open())
+        const QString stylesheet = "themes/" + files[i];
+        if(QFile::remove(stylesheet))
         {
-            while(std::getline(in,tmp))
+            //reading in new stylesheet
+            std::string style="";
+            std::string tmp;
+            std::ifstream in;
+            in.open(path + "/" + files[i].toStdString());
+            if(in.is_open())
             {
-                style+=tmp;
+                while(std::getline(in,tmp))
+                {
+                    style+=tmp+'\n';
+                }
             }
+            in.close();
+
+            //copy new style
+            std::ofstream file;
+            file.open("themes/" + files[i].toStdString());
+            if(file.is_open())
+                file << style.c_str();
+            file.close();
         }
-        in.close();
-        std::ofstream file;
-        file.open("themes/default.css");
-        if(file.is_open())
-            file << style.c_str();
-        file.close();
     }
+
 
     this->close();
 }

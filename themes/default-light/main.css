@@ -1,0 +1,49 @@
+CodeEditor{
+	background-color:lightgray;
+	color:gray;
+	border:none;
+	font:11pt Consolas;
+}
+QListWidget{
+	border:none;
+	font: 10pt "Consolas";
+	background-color:lightgray;
+	color:black;
+}
+QListWidget::item:hover{
+	border:none;
+	background-color:lightgray;
+}
+QListWidget::item:selected{
+	background-color:#0088c0;
+	border:none;
+	color:lightgray;
+}
+QMenuBar{
+	background-color:gray;
+	border:none;
+}
+QMenuBar::item{
+	color:black;
+	background-color:gray;
+}
+QMenuBar::item:hover{
+	background-color:gray;
+}
+QToolBar{
+	background-color:gray;
+	border:none;
+}
+QLabel{
+	color:white;
+	font: 9pt "Consolas";
+	padding-left:10px;
+}
+QLineEdit{
+	font: 9pt "Consolas";
+	background-color:white;
+	border:none;
+}
+QStatusBar{
+	background-color:lightgray;
+}
