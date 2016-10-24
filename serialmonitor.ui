@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
   <layout class="QGridLayout" name="gridLayout">
    <property name="leftMargin">
     <number>0</number>
@@ -32,10 +35,7 @@
    <item row="0" column="0">
     <widget class="QPlainTextEdit" name="plainTextEdit">
      <property name="styleSheet">
-      <string notr="true">background-color:rgb(28,28,28);
-color:white;
-font: 10pt &quot;Consolas&quot;;
-border:none;</string>
+      <string notr="true"/>
      </property>
     </widget>
    </item>

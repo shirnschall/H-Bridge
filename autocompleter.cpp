@@ -3,7 +3,8 @@
 
 AutoCompleter::AutoCompleter(QWidget *parent) : QListWidget(parent)
 {
-
+    //parse for styles
+    //read stylesheet:
 }
 
 AutoCompleter::~AutoCompleter()

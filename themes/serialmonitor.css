@@ -1,0 +1,6 @@
+QPlainTextEdit{
+	background-color:rgb(28,28,28);
+	color:white;
+	font: 10pt "Consolas";
+	border:none;
+}
