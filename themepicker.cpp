@@ -19,24 +19,9 @@ ThemePicker::ThemePicker(QWidget *parent) :
     QDirIterator it("themes/", QDirIterator::Subdirectories);
     while (it.hasNext()) {
         it.next();
-        if(it.fileName()!="." && it.fileName()!=".." && it.fileName()!="main.css"&& it.fileName()!="codeeditor.css"&& it.fileName()!="themepicker.css"&& it.fileName()!="highlighter.css"&& it.fileName()!="searchbox.css"&& it.fileName()!="serialmonitor.css")
+        if(it.fileName()!="." && it.fileName()!=".." && it.fileName()!="main.css"&& it.fileName()!="codeeditor.css"&& it.fileName()!="themepicker.css")
             ui->listWidget->addItem(it.fileName());
     }
-
-//    std::string style="";
-//    std::string tmp;
-//    std::ifstream in;
-//    in.open("themes/themepicker.css");
-//    if(in.is_open())
-//    {
-//        while(std::getline(in,tmp))
-//        {
-//            style+=tmp;
-//        }
-//    }
-//    in.close();
-//
-//    setStyleSheet(style.c_str());
 }
 
 ThemePicker::~ThemePicker()
@@ -46,7 +31,7 @@ ThemePicker::~ThemePicker()
 
 void ThemePicker::on_buttonBox_accepted()
 {
-    std::vector<QString> files{"main.css","themepicker.css","codeeditor.css","highlighter.css","serialmonitor.css","searchbox.css"};
+    std::vector<QString> files{"main.css","themepicker.css","codeeditor.css"};
 
     std::string path = "themes/" + ui->listWidget->currentItem()->text().toStdString();
     //replace default.css with new style
