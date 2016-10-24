@@ -578,5 +578,11 @@ void MainWindow::on_actionThemes_triggered()
     themeDialog.setStyleSheet(getFileContent("themes/default-themepicker.css").c_str());
     themeDialog.setModal(true);
     themeDialog.exec();
-    setStyleSheet(getFileContent("themes/main.css").c_str());
+
+    QMessageBox msgBox;
+    msgBox.setText("Please restart H-Bridge!");
+    msgBox.setIcon(QMessageBox::Information);
+    msgBox.exec();
+
+    //setStyleSheet(getFileContent("themes/main.css").c_str());
 }
