@@ -1,0 +1,11 @@
+QLineEdit{
+	border:none;
+	background-color:rgb(45,45,48);
+	color:darkgray;
+}
+QFrame{
+	background-color:rgb(58,58,60);
+}
+QToolButton{
+	border:none;
+}

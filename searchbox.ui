@@ -53,7 +53,7 @@
    <item row="0" column="0">
     <widget class="QFrame" name="frame">
      <property name="styleSheet">
-      <string notr="true">background-color:rgb(58,58,60);</string>
+      <string notr="true"/>
      </property>
      <property name="frameShape">
       <enum>QFrame::StyledPanel</enum>
@@ -79,9 +79,7 @@
         <item>
          <widget class="QLineEdit" name="searchBar">
           <property name="styleSheet">
-           <string notr="true">border:none;
-background-color:rgb(45,45,48);
-color:darkgray;</string>
+           <string notr="true"/>
           </property>
          </widget>
         </item>
@@ -106,7 +104,7 @@ color:darkgray;</string>
            </size>
           </property>
           <property name="styleSheet">
-           <string notr="true">border:none;</string>
+           <string notr="true"/>
           </property>
           <property name="text">
            <string>...</string>
@@ -144,7 +142,7 @@ color:darkgray;</string>
            </size>
           </property>
           <property name="styleSheet">
-           <string notr="true">border:none;</string>
+           <string notr="true"/>
           </property>
           <property name="text">
            <string>...</string>
