@@ -87,21 +87,11 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_actionRun_triggered()
 {
-    //save cpp code to file
-    ofstream buildFile;
-    buildFile.open("build.cpp");
-    CodeEditor *current =dynamic_cast<CodeEditor *>(ui->stackedWidget->currentWidget());
-    if(current)
-    {
-       buildFile << current->toPlainText().toStdString().c_str();
-    }
-    buildFile.close();
-
-    //removing a.exe
-    remove("a.exe");
+    //save
+    on_actionSave_triggered();
 
     //compile and run
-    std::string command="g++ -std=c++11 " + ui->lineEdit->text().toStdString() + " build.cpp -o a.exe & a.exe & set /P ANSWER=Enter to continue...";
+    std::string command="make clean & make all & main.exe & set /P ANSWER=Enter to continue...";
     system(command.c_str());
 
 }
@@ -109,7 +99,7 @@ void MainWindow::on_actionRun_triggered()
 void MainWindow::on_actionNew_triggered()
 {
     ui->listWidget->addItem("untitled document");
-    ui->stackedWidget->addWidget(new CodeEditor(0,this,"#include <iostream>\n\nusing namespace std;\n\n\n\nint main(int argc, char* argv[])\n{\n    \n}",&wordsToComplete));
+    ui->stackedWidget->addWidget(new CodeEditor(0,this,"#include <avr/io.h>\n#include <stdint.h>\n\n\n\nint main(void) {\n    \n    DDRB  = 0xFF;\n    PORTB = 0x03;\n    \n    \n    \n    return 0;\n}",&wordsToComplete));
     ui->listWidget->setCurrentRow(ui->listWidget->count()-1);
     locations.push_back("");
 }
