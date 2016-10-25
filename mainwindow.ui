@@ -36,29 +36,113 @@
     <property name="spacing">
      <number>0</number>
     </property>
+    <item row="1" column="4">
+     <widget class="QSplitter" name="splitter">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="handleWidth">
+       <number>1</number>
+      </property>
+      <widget class="QStackedWidget" name="stackedWidget">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>1</verstretch>
+        </sizepolicy>
+       </property>
+      </widget>
+      <widget class="serialMonitor" name="widget" native="true"/>
+     </widget>
+    </item>
+    <item row="0" column="4">
+     <widget class="QLabel" name="label_4">
+      <property name="text">
+       <string>programmer</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="6">
+     <widget class="QLabel" name="label_5">
+      <property name="text">
+       <string>baudrate</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="2">
+     <widget class="QLabel" name="label_2">
+      <property name="text">
+       <string>port</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="7">
+     <widget class="QComboBox" name="comboBox_4">
+      <property name="currentIndex">
+       <number>4</number>
+      </property>
+      <item>
+       <property name="text">
+        <string>300</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>1200</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>2400</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>4800</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>9600</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>19200</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>38400</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>57600</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>74880</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>115200</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item row="0" column="3">
+     <widget class="QComboBox" name="comboBox_2"/>
+    </item>
     <item row="0" column="0">
      <widget class="QLabel" name="label">
       <property name="styleSheet">
        <string notr="true"/>
       </property>
       <property name="text">
-       <string>Flags:</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="2">
-     <widget class="QLineEdit" name="lineEdit">
-      <property name="maximumSize">
-       <size>
-        <width>200</width>
-        <height>16777215</height>
-       </size>
-      </property>
-      <property name="styleSheet">
-       <string notr="true"/>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+       <string>chip</string>
       </property>
      </widget>
     </item>
@@ -96,23 +180,320 @@
       </property>
      </widget>
     </item>
-    <item row="1" column="1">
-     <widget class="QSplitter" name="splitter">
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
+    <item row="0" column="5">
+     <widget class="QComboBox" name="comboBox_3">
+      <property name="currentIndex">
+       <number>56</number>
       </property>
-      <property name="handleWidth">
-       <number>1</number>
-      </property>
-      <widget class="QStackedWidget" name="stackedWidget">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-         <horstretch>0</horstretch>
-         <verstretch>1</verstretch>
-        </sizepolicy>
+      <item>
+       <property name="text">
+        <string>c2n232i</string>
        </property>
-      </widget>
-      <widget class="serialMonitor" name="widget" native="true"/>
+      </item>
+      <item>
+       <property name="text">
+        <string>dasa3</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>dasa</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>siprog</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>ponyser</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>89isp</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>frank-stk200</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>blaster</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>ere-isp-avr</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>atisp</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>dapa</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>xil</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>futurlec</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>abcmini</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>picoweb</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>sp12</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>alf</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>bascom</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>dt006</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>pony-stk200</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>bsd</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>pavr</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>dragon_pdi</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>dragon_dw</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>dragon_hvsp</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>dragon_pp</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>dragon_isp</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>dragon_jtag</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>jtag2pdi</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>jtag2avr32</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>jtagmkII_avr32</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>jtag2dw</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>jtag2isp</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>jtag2</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>jtag2fast</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>jtag2slow</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>jtagmkII</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>jtag1slow</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>jtag1</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>jtagmkI</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>avr911</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>avr109</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>butterfly</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>usbtiny</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>avr910</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>stk600hvsp</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>stk600pp</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>stk600</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>stk500hvsp</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>stk500pp</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>stk500v2</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>stk510</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>stk500v1</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>stk500</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>buspirate</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>avrisp2</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>avrispmkII</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>avrispv2</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>avrisp</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>arduino</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QComboBox" name="comboBox">
+      <item>
+       <property name="text">
+        <string>atmega328p</string>
+       </property>
+      </item>
      </widget>
     </item>
    </layout>
@@ -185,7 +566,6 @@
     <bool>false</bool>
    </attribute>
    <addaction name="actionRun"/>
-   <addaction name="actionDebug"/>
   </widget>
   <action name="actionNew">
    <property name="text">

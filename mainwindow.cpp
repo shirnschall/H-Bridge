@@ -18,6 +18,9 @@
 #include <stdio.h>
 #include <chrono>
 
+#include <qdebug.h>
+#include <QtSerialPort/QSerialPortInfo>
+#include <QtSerialPort/QSerialPort>
 #include <QMutex>
 #include <QProgressBar>
 #include <QLabel>
@@ -49,7 +52,19 @@ MainWindow::MainWindow(QWidget *parent) :
 
     //adding the lineedit:
     ui->toolBar->addWidget(ui->label);
-    ui->toolBar->addWidget(ui->lineEdit);
+    ui->toolBar->addWidget(ui->comboBox);
+    ui->toolBar->addWidget(ui->label_2);
+    ui->toolBar->addWidget(ui->comboBox_2);
+    ui->toolBar->addWidget(ui->label_4);
+    ui->toolBar->addWidget(ui->comboBox_3);
+    ui->toolBar->addWidget(ui->label_5);
+    ui->toolBar->addWidget(ui->comboBox_4);
+
+    // read ports
+    for(QSerialPortInfo port: QSerialPortInfo::availablePorts())
+    {
+        ui->comboBox_2->addItem(port.portName());
+    }
 
     //set style:
     setStyleSheet(getFileContent("themes/main.css").c_str());
@@ -87,9 +102,11 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_actionRun_triggered()
 {
+    if(QFile::exists("build.c"))
+        QFile::remove("build.c");
     //save cpp code to file
     ofstream buildFile;
-    buildFile.open("build.cpp");
+    buildFile.open("build.c");
     CodeEditor *current =dynamic_cast<CodeEditor *>(ui->stackedWidget->currentWidget());
     if(current)
     {
@@ -97,11 +114,13 @@ void MainWindow::on_actionRun_triggered()
     }
     buildFile.close();
 
-    //removing a.exe
-    remove("a.exe");
 
-    //compile and run
-    std::string command="g++ -std=c++11 " + ui->lineEdit->text().toStdString() + " build.cpp -o a.exe & a.exe & set /P ANSWER=Enter to continue...";
+
+    //compile and upload
+    std::string command = "C:\\WinAVR-20100110\\bin\\avr-gcc -g -Os -mmcu=" + ui->comboBox->currentText().toStdString() + " -c build.c & C:\\WinAVR-20100110\\bin\\avr-gcc -g -mmcu=" +ui->comboBox->currentText().toStdString() + " -o build.elf build.o & C:\\WinAVR-20100110\\bin\\avr-objcopy -j .text -j .data -O ihex build.elf build.hex & C:\\WinAVR-20100110\\bin\\avrdude -p " + ui->comboBox->currentText().toStdString() + " -c " + ui->comboBox_3->currentText().toStdString() + " -P " + ui->comboBox_2->currentText().toStdString() + " -b " + ui->comboBox_4->currentText().toStdString() + " -v -U flash:w:build.hex & set /P ANSWER=Enter to continue...";
+
+    qDebug() << command.c_str();
+
     system(command.c_str());
 
 }
@@ -109,7 +128,7 @@ void MainWindow::on_actionRun_triggered()
 void MainWindow::on_actionNew_triggered()
 {
     ui->listWidget->addItem("untitled document");
-    ui->stackedWidget->addWidget(new CodeEditor(0,this,"#include <iostream>\n\nusing namespace std;\n\n\n\nint main(int argc, char* argv[])\n{\n    \n}",&wordsToComplete));
+    ui->stackedWidget->addWidget(new CodeEditor(0,this,"#include <avr/io.h>\n#include <stdint.h>\n\n\n\nint main(void) {\n    \n    DDRB  = 0xFF;\n    PORTB = 0x03;\n    \n    \n    \n    return 0;\n}",&wordsToComplete));
     ui->listWidget->setCurrentRow(ui->listWidget->count()-1);
     locations.push_back("");
 }
@@ -491,6 +510,8 @@ void MainWindow::parseText()
     {
         //sleep 500 miliseconds
     std::this_thread::sleep_for(std::chrono::milliseconds(100));
+
+    //update serial devices...
 
     CodeEditor *current =dynamic_cast<CodeEditor *>(ui->stackedWidget->currentWidget());
     if(current)
