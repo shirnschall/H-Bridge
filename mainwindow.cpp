@@ -479,7 +479,7 @@ void MainWindow::on_actionSearch_triggered()
 void MainWindow::on_actionAbout_triggered()
 {
     QMessageBox msgBox;
-    msgBox.setText("<font color=\"white\" size=\"5\" face=\"consolas\"><center>HBridge 0.3<br /><br />(C) Sebastian Hirnschall 2016<br /><br />Written in Qt C++</center></font>");
+    msgBox.setText("<font color=\"white\" size=\"5\" face=\"consolas\"><center>HBridge 0.4<br /><br />(C) Sebastian Hirnschall 2016<br /><br />Written in Qt C++</center></font>");
     msgBox.setIconPixmap(QPixmap(":/icons/hirnschall.png"));
     msgBox.setDefaultButton(QMessageBox::Cancel);
     msgBox.setStyleSheet("QMessageBox{background-color:rgb(49,49,49);}");
