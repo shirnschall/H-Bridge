@@ -36,106 +36,6 @@
     <property name="spacing">
      <number>0</number>
     </property>
-    <item row="1" column="4">
-     <widget class="QSplitter" name="splitter">
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-      <property name="handleWidth">
-       <number>1</number>
-      </property>
-      <widget class="QStackedWidget" name="stackedWidget">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-         <horstretch>0</horstretch>
-         <verstretch>1</verstretch>
-        </sizepolicy>
-       </property>
-      </widget>
-      <widget class="serialMonitor" name="widget" native="true"/>
-     </widget>
-    </item>
-    <item row="0" column="4">
-     <widget class="QLabel" name="label_4">
-      <property name="text">
-       <string>programmer</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="6">
-     <widget class="QLabel" name="label_5">
-      <property name="text">
-       <string>baudrate</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="2">
-     <widget class="QLabel" name="label_2">
-      <property name="text">
-       <string>port</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="7">
-     <widget class="QComboBox" name="comboBox_4">
-      <property name="currentIndex">
-       <number>4</number>
-      </property>
-      <item>
-       <property name="text">
-        <string>300</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>1200</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>2400</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>4800</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>9600</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>19200</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>38400</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>57600</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>74880</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>115200</string>
-       </property>
-      </item>
-     </widget>
-    </item>
-    <item row="0" column="3">
-     <widget class="QComboBox" name="comboBox_2"/>
-    </item>
     <item row="0" column="0">
      <widget class="QLabel" name="label">
       <property name="styleSheet">
@@ -146,37 +46,29 @@
       </property>
      </widget>
     </item>
-    <item row="1" column="0">
-     <widget class="QListWidget" name="listWidget">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
+    <item row="0" column="1">
+     <widget class="QComboBox" name="comboBox">
+      <item>
+       <property name="text">
+        <string>atmega328p</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item row="0" column="2">
+     <widget class="QLabel" name="label_2">
+      <property name="text">
+       <string>port</string>
       </property>
-      <property name="maximumSize">
-       <size>
-        <width>200</width>
-        <height>16777215</height>
-       </size>
-      </property>
-      <property name="baseSize">
-       <size>
-        <width>200</width>
-        <height>0</height>
-       </size>
-      </property>
-      <property name="focusPolicy">
-       <enum>Qt::NoFocus</enum>
-      </property>
-      <property name="styleSheet">
-       <string notr="true"/>
-      </property>
-      <property name="dragEnabled">
-       <bool>false</bool>
-      </property>
-      <property name="dragDropMode">
-       <enum>QAbstractItemView::InternalMove</enum>
+     </widget>
+    </item>
+    <item row="0" column="3">
+     <widget class="QComboBox" name="comboBox_2"/>
+    </item>
+    <item row="0" column="4">
+     <widget class="QLabel" name="label_4">
+      <property name="text">
+       <string>programmer</string>
       </property>
      </widget>
     </item>
@@ -487,13 +379,122 @@
       </item>
      </widget>
     </item>
-    <item row="0" column="1">
-     <widget class="QComboBox" name="comboBox">
+    <item row="0" column="6">
+     <widget class="QLabel" name="label_5">
+      <property name="text">
+       <string>baudrate</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="7">
+     <widget class="QComboBox" name="comboBox_4">
+      <property name="currentIndex">
+       <number>4</number>
+      </property>
       <item>
        <property name="text">
-        <string>atmega328p</string>
+        <string>300</string>
        </property>
       </item>
+      <item>
+       <property name="text">
+        <string>1200</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>2400</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>4800</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>9600</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>19200</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>38400</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>57600</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>74880</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>115200</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QListWidget" name="listWidget">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>200</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="baseSize">
+       <size>
+        <width>200</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::NoFocus</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="dragEnabled">
+       <bool>false</bool>
+      </property>
+      <property name="dragDropMode">
+       <enum>QAbstractItemView::InternalMove</enum>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="3" colspan="2">
+     <widget class="QSplitter" name="splitter">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <widget class="QStackedWidget" name="stackedWidget">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>1</verstretch>
+        </sizepolicy>
+       </property>
+      </widget>
+      <widget class="QTabWidget" name="tabWidget">
+       <property name="currentIndex">
+        <number>-1</number>
+       </property>
+      </widget>
      </widget>
     </item>
    </layout>
@@ -545,8 +546,40 @@
     <addaction name="separator"/>
     <addaction name="actionAbout"/>
    </widget>
+   <widget class="QMenu" name="menuHardware">
+    <property name="title">
+     <string>Hardware</string>
+    </property>
+    <widget class="QMenu" name="menuBaudrate">
+     <property name="title">
+      <string>Baudrate</string>
+     </property>
+     <addaction name="action1200"/>
+     <addaction name="action2400"/>
+     <addaction name="action4800"/>
+     <addaction name="action9600"/>
+     <addaction name="action19200"/>
+     <addaction name="action38400"/>
+     <addaction name="action57600"/>
+     <addaction name="action74880"/>
+     <addaction name="action115200"/>
+     <addaction name="action230400"/>
+     <addaction name="action250000"/>
+    </widget>
+    <widget class="QMenu" name="menuPort">
+     <property name="title">
+      <string>Port</string>
+     </property>
+     <addaction name="actionSelect_port"/>
+    </widget>
+    <addaction name="actionChip"/>
+    <addaction name="menuPort"/>
+    <addaction name="actionProgrammer"/>
+    <addaction name="menuBaudrate"/>
+   </widget>
    <addaction name="menuFile"/>
    <addaction name="menuEdit"/>
+   <addaction name="menuHardware"/>
    <addaction name="menuHelp"/>
   </widget>
   <widget class="QToolBar" name="toolBar">
@@ -701,16 +734,114 @@
     <string>Themes</string>
    </property>
   </action>
+  <action name="actionChip">
+   <property name="text">
+    <string>Chip</string>
+   </property>
+  </action>
+  <action name="actionProgrammer">
+   <property name="text">
+    <string>Programmer</string>
+   </property>
+  </action>
+  <action name="action1200">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>1200</string>
+   </property>
+  </action>
+  <action name="action2400">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>2400</string>
+   </property>
+  </action>
+  <action name="action4800">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>4800</string>
+   </property>
+  </action>
+  <action name="action9600">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>9600</string>
+   </property>
+  </action>
+  <action name="action19200">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>19200</string>
+   </property>
+  </action>
+  <action name="action38400">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>38400</string>
+   </property>
+  </action>
+  <action name="action57600">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>57600</string>
+   </property>
+  </action>
+  <action name="action74880">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>74880</string>
+   </property>
+  </action>
+  <action name="action115200">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>115200</string>
+   </property>
+  </action>
+  <action name="action230400">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>230400</string>
+   </property>
+  </action>
+  <action name="action250000">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>250000</string>
+   </property>
+  </action>
+  <action name="actionSelect_port">
+   <property name="text">
+    <string>Serial ports</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <customwidgets>
-  <customwidget>
-   <class>serialMonitor</class>
-   <extends>QWidget</extends>
-   <header>serialmonitor.h</header>
-   <container>1</container>
-  </customwidget>
- </customwidgets>
  <resources>
   <include location="recources.qrc"/>
  </resources>

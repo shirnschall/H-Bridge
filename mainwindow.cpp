@@ -2,10 +2,10 @@
 #include "ui_mainwindow.h"
 #include "filebrowser.h"
 #include "searchbox.h"
-#include "serialmonitor.h"
 #include <themepicker.h>
 #include <codeeditor.h>
-
+#include "compileroutput.h"
+#include "compilerissues.h"
 
 #include <stdlib.h>
 #include <fstream>
@@ -26,6 +26,8 @@
 #include <QLabel>
 #include <QFileDialog>
 #include <QMessageBox>
+#include <QAction>
+#include <QMenu>
 
 QMutex mutex;
 
@@ -60,6 +62,16 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->toolBar->addWidget(ui->label_5);
     ui->toolBar->addWidget(ui->comboBox_4);
 
+    compilerIssues *cissues=new compilerIssues(this);
+    compilerOutput *output=new compilerOutput(this);
+
+    ui->tabWidget->addTab(output,QIcon(QString("")),"Compiler Output");
+    ui->tabWidget->addTab(cissues,QIcon(QString("")),"Issues");
+
+    connect(output,SIGNAL(updateIssues(std::vector<QString>)),cissues,SLOT(update(std::vector<QString>)));
+
+    connect(this,SIGNAL(runCode(std::string,std::string,std::string,std::string)),output,SLOT(compile(std::string,std::string,std::string,std::string)));
+
     // read ports
     for(QSerialPortInfo port: QSerialPortInfo::availablePorts())
     {
@@ -82,8 +94,8 @@ MainWindow::MainWindow(QWidget *parent) :
     //hide debug window:
     //ui->plainTextEdit->setVisible(false);
     //ui->treeWidget->setVisible(false);
-    ui->widget->setVisible(false);
-    ui->widget->setStyleSheet(getFileContent("themes/serialmonitor.css").c_str());
+    //ui->widget->setVisible(false);
+    //ui->widget->setStyleSheet(getFileContent("themes/serialmonitor.css").c_str());
 
     //start parseText as a new thread and continue searching for new vars/functions etc
     std::thread t1(&MainWindow::parseText,this);
@@ -114,14 +126,7 @@ void MainWindow::on_actionRun_triggered()
     }
     buildFile.close();
 
-
-
-    //compile and upload
-    std::string command = "C:\\WinAVR-20100110\\bin\\avr-gcc -g -Os -mmcu=" + ui->comboBox->currentText().toStdString() + " -c build.c & C:\\WinAVR-20100110\\bin\\avr-gcc -g -mmcu=" +ui->comboBox->currentText().toStdString() + " -o build.elf build.o & C:\\WinAVR-20100110\\bin\\avr-objcopy -j .text -j .data -O ihex build.elf build.hex & C:\\WinAVR-20100110\\bin\\avrdude -p " + ui->comboBox->currentText().toStdString() + " -c " + ui->comboBox_3->currentText().toStdString() + " -P " + ui->comboBox_2->currentText().toStdString() + " -b " + ui->comboBox_4->currentText().toStdString() + " -v -U flash:w:build.hex & set /P ANSWER=Enter to continue...";
-
-    qDebug() << command.c_str();
-
-    system(command.c_str());
+    runCode(ui->comboBox->currentText().toStdString(),ui->comboBox_2->currentText().toStdString(),ui->comboBox_3->currentText().toStdString(),ui->comboBox_4->currentText().toStdString());
 
 }
 
@@ -491,7 +496,7 @@ void MainWindow::on_actionDebug_triggered()
 {
     //ui->plainTextEdit->setVisible(true);
     //ui->treeWidget->setVisible(true);
-    ui->widget->setVisible(true);
+    //ui->widget->setVisible(true);
 
     //std::thread debug(&MainWindow::exec,this,"a.exe", this);
     //debug.detach();

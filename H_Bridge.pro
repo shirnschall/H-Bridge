@@ -18,20 +18,23 @@ SOURCES += main.cpp\
     codeeditor.cpp \
     highlighter.cpp \
     searchbox.cpp \
-    serialmonitor.cpp \
-    themepicker.cpp
+    themepicker.cpp \
+    compileroutput.cpp \
+    compilerissues.cpp
 
 HEADERS  += mainwindow.h \
     codeeditor.h \
     highlighter.h \
     searchbox.h \
-    serialmonitor.h \
-    themepicker.h
+    themepicker.h \
+    compileroutput.h \
+    compilerissues.h
 
 FORMS    += mainwindow.ui \
     searchbox.ui \
-    serialmonitor.ui \
-    themepicker.ui
+    themepicker.ui \
+    compileroutput.ui \
+    compilerissues.ui
 
 RESOURCES += \
     recources.qrc

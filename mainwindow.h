@@ -25,6 +25,9 @@ private:
 
     void parseText();
 
+signals:
+    void runCode(std::string,std::string,std::string,std::string);
+
 public slots:
     void CodeEditorTextChanged();
 
