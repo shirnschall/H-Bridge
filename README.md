@@ -15,6 +15,9 @@ Still a messy codebase, but once every feature is working properly I will work o
 - [ ] settings (maybe json)
 - [ ] autosave backup
 - [ ] serial monitor
+- [ ] Value Converter
+- [ ] LCD Designer
+- [ ] RGB-LED Color selector
 - [ ] parse header files for autocompletion
 - [ ] update routine
 - [ ] lib manager
