@@ -28,6 +28,7 @@
 #include <QMessageBox>
 #include <QAction>
 #include <QMenu>
+#include <QTextCursor>
 
 QMutex mutex;
 
@@ -68,9 +69,14 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->tabWidget->addTab(output,QIcon(QString("")),"Compiler Output");
     ui->tabWidget->addTab(cissues,QIcon(QString("")),"Issues");
 
+    ui->tabWidget->setCurrentIndex(1);  //set default tab issues
+
     connect(output,SIGNAL(updateIssues(std::vector<QString>)),cissues,SLOT(update(std::vector<QString>)));
 
     connect(this,SIGNAL(runCode(std::string,std::string,std::string,std::string)),output,SLOT(compile(std::string,std::string,std::string,std::string)));
+
+    connect(cissues,SIGNAL(gotoError(int)),this,SLOT(gotoError(int)));
+
 
     // read ports
     for(QSerialPortInfo port: QSerialPortInfo::availablePorts())
@@ -528,7 +534,6 @@ void MainWindow::parseText()
         {
             std::string line = "",
                         lineWOSpace="";
-
             mutex.lock();
             line=current->document()->findBlockByNumber(i).text().toStdString();
             mutex.unlock();
@@ -611,4 +616,17 @@ void MainWindow::on_actionThemes_triggered()
     msgBox.exec();
 
     //setStyleSheet(getFileContent("themes/main.css").c_str());
+}
+
+void MainWindow::gotoError(int index)
+{
+    //qDebug() << index;
+    CodeEditor *current =dynamic_cast<CodeEditor *>(ui->stackedWidget->currentWidget());
+    if(current)
+    {
+       QTextCursor tmpCursor(current->document()->findBlockByLineNumber(index-1));  //set cursor to line with error!
+       //tmpCursor.setPosition(index);
+       current->setTextCursor(tmpCursor);
+       current->setFocus();
+    }
 }

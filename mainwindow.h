@@ -31,6 +31,8 @@ signals:
 public slots:
     void CodeEditorTextChanged();
 
+    void gotoError(int);
+
 private slots:
     void on_actionRun_triggered();
 
