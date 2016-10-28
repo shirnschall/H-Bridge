@@ -6,6 +6,7 @@
 #include <codeeditor.h>
 #include "compileroutput.h"
 #include "compilerissues.h"
+#include "lcddesigner.h"
 
 #include <stdlib.h>
 #include <fstream>
@@ -629,4 +630,12 @@ void MainWindow::gotoError(int index)
        current->setTextCursor(tmpCursor);
        current->setFocus();
     }
+}
+
+void MainWindow::on_actionLCD_Designer_triggered()
+{
+    lcdDesigner *lcd = new lcdDesigner();
+    lcd->setWindowTitle("LCD Designer");
+    lcd->setFixedSize(179,305);
+    lcd->show();
 }

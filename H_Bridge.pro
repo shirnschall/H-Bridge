@@ -20,7 +20,8 @@ SOURCES += main.cpp\
     searchbox.cpp \
     themepicker.cpp \
     compileroutput.cpp \
-    compilerissues.cpp
+    compilerissues.cpp \
+    lcddesigner.cpp
 
 HEADERS  += mainwindow.h \
     codeeditor.h \
@@ -28,13 +29,15 @@ HEADERS  += mainwindow.h \
     searchbox.h \
     themepicker.h \
     compileroutput.h \
-    compilerissues.h
+    compilerissues.h \
+    lcddesigner.h
 
 FORMS    += mainwindow.ui \
     searchbox.ui \
     themepicker.ui \
     compileroutput.ui \
-    compilerissues.ui
+    compilerissues.ui \
+    lcddesigner.ui
 
 RESOURCES += \
     recources.qrc

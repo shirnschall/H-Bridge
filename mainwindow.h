@@ -62,6 +62,8 @@ private slots:
 
     void on_actionThemes_triggered();
 
+    void on_actionLCD_Designer_triggered();
+
 protected:
     void resizeEvent(QResizeEvent *event) Q_DECL_OVERRIDE;
 

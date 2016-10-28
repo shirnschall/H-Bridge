@@ -583,9 +583,19 @@
     <addaction name="actionProgrammer"/>
     <addaction name="menuBaudrate"/>
    </widget>
+   <widget class="QMenu" name="menuTools">
+    <property name="title">
+     <string>Tools</string>
+    </property>
+    <addaction name="actionSerial_Monitor"/>
+    <addaction name="actionLCD_Designer"/>
+    <addaction name="actionRGB_LED_Color"/>
+    <addaction name="actionValue_Converter"/>
+   </widget>
    <addaction name="menuFile"/>
    <addaction name="menuEdit"/>
    <addaction name="menuHardware"/>
+   <addaction name="menuTools"/>
    <addaction name="menuHelp"/>
   </widget>
   <widget class="QToolBar" name="toolBar">
@@ -844,6 +854,31 @@
   <action name="actionSelect_port">
    <property name="text">
     <string>Serial ports</string>
+   </property>
+  </action>
+  <action name="actionLCD_Designer">
+   <property name="text">
+    <string>LCD Designer</string>
+   </property>
+  </action>
+  <action name="actionRGB_LED_Color">
+   <property name="text">
+    <string>RGB-LED Color</string>
+   </property>
+  </action>
+  <action name="actionLib_Manager">
+   <property name="text">
+    <string>Lib Manager</string>
+   </property>
+  </action>
+  <action name="actionValue_Converter">
+   <property name="text">
+    <string>Value Converter</string>
+   </property>
+  </action>
+  <action name="actionSerial_Monitor">
+   <property name="text">
+    <string>Terminal</string>
    </property>
   </action>
  </widget>
