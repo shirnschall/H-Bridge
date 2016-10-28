@@ -78,7 +78,10 @@ void compilerOutput::compile(std::string mmcu, std::string port, std::string pro
 //upload
     ui->plainTextEdit->appendPlainText(QTime::currentTime().toString() + "  C:\\WinAVR-20100110\\bin\\avrdude ");
     process->start("C:\\WinAVR-20100110\\bin\\avrdude -p " + QString::fromStdString(mmcu) + " -c " + QString::fromStdString(programmer) + " -P " + QString::fromStdString(port) + " -b " + QString::fromStdString(baudrate) + " -v -U flash:w:build.hex");
-    process->waitForFinished();
+    process->waitForFinished(10000);
+    //while (process->pid()) {
+    //    QApplication::processEvents();
+    //}
     error = process->readAllStandardError();
     output = process->readAllStandardOutput();
     if(error.length()>2)

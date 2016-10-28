@@ -5,7 +5,7 @@
 
 #include <QDebug>
 
-int matrix[5][7];
+int matrix[5][8];
 
 
 lcdDesigner::lcdDesigner(QDialog *parent) :
@@ -306,14 +306,15 @@ void lcdDesigner::on_pushButton_37_clicked()
     QString byteName="myByte";
     if(!ui->lineEdit->text().isEmpty())
          byteName = ui->lineEdit->text();
-    customByte= "byte " + byteName + "[8] = {\n"
-            + "  B"+ QString::number(matrix[0][0]%2) + QString::number(matrix[1][0]%2) + QString::number(matrix[2][0]%2) + QString::number(matrix[3][0]%2) + QString::number(matrix[4][0]%2) + ",\n"
-            + "  B"+ QString::number(matrix[0][1]%2) + QString::number(matrix[1][1]%2) + QString::number(matrix[2][1]%2) + QString::number(matrix[3][1]%2) + QString::number(matrix[4][1]%2) + ",\n"
-            + "  B"+ QString::number(matrix[0][2]%2) + QString::number(matrix[1][2]%2) + QString::number(matrix[2][2]%2) + QString::number(matrix[3][2]%2) + QString::number(matrix[4][2]%2) + ",\n"
-            + "  B"+ QString::number(matrix[0][3]%2) + QString::number(matrix[1][3]%2) + QString::number(matrix[2][3]%2) + QString::number(matrix[3][3]%2) + QString::number(matrix[4][3]%2) + ",\n"
-            + "  B"+ QString::number(matrix[0][4]%2) + QString::number(matrix[1][4]%2) + QString::number(matrix[2][4]%2) + QString::number(matrix[3][4]%2) + QString::number(matrix[4][4]%2) + ",\n"
-            + "  B"+ QString::number(matrix[0][5]%2) + QString::number(matrix[1][5]%2) + QString::number(matrix[2][5]%2) + QString::number(matrix[3][5]%2) + QString::number(matrix[4][5]%2) + ",\n"
-            + "  B"+ QString::number(matrix[0][6]%2) + QString::number(matrix[1][6]%2) + QString::number(matrix[2][6]%2) + QString::number(matrix[3][6]%2) + QString::number(matrix[4][6]%2) + ",\n};";
+    customByte= "uint8_t " + byteName + "[8] = {\n"
+            + "  0b"+ QString::number(matrix[0][0]%2) + QString::number(matrix[1][0]%2) + QString::number(matrix[2][0]%2) + QString::number(matrix[3][0]%2) + QString::number(matrix[4][0]%2) + ",\n"
+            + "  0b"+ QString::number(matrix[0][1]%2) + QString::number(matrix[1][1]%2) + QString::number(matrix[2][1]%2) + QString::number(matrix[3][1]%2) + QString::number(matrix[4][1]%2) + ",\n"
+            + "  0b"+ QString::number(matrix[0][2]%2) + QString::number(matrix[1][2]%2) + QString::number(matrix[2][2]%2) + QString::number(matrix[3][2]%2) + QString::number(matrix[4][2]%2) + ",\n"
+            + "  0b"+ QString::number(matrix[0][3]%2) + QString::number(matrix[1][3]%2) + QString::number(matrix[2][3]%2) + QString::number(matrix[3][3]%2) + QString::number(matrix[4][3]%2) + ",\n"
+            + "  0b"+ QString::number(matrix[0][4]%2) + QString::number(matrix[1][4]%2) + QString::number(matrix[2][4]%2) + QString::number(matrix[3][4]%2) + QString::number(matrix[4][4]%2) + ",\n"
+            + "  0b"+ QString::number(matrix[0][5]%2) + QString::number(matrix[1][5]%2) + QString::number(matrix[2][5]%2) + QString::number(matrix[3][5]%2) + QString::number(matrix[4][5]%2) + ",\n"
+            + "  0b"+ QString::number(matrix[0][6]%2) + QString::number(matrix[1][6]%2) + QString::number(matrix[2][6]%2) + QString::number(matrix[3][6]%2) + QString::number(matrix[4][6]%2) + ",\n"
+            + "  0b"+ QString::number(matrix[0][7]%2) + QString::number(matrix[1][7]%2) + QString::number(matrix[2][7]%2) + QString::number(matrix[3][7]%2) + QString::number(matrix[4][7]%2) + "\n};";
 
     //copy text to clipboard
     QClipboard *cboard= QApplication::clipboard();
@@ -365,4 +366,56 @@ void lcdDesigner::on_pushButton_36_clicked()
     ui->pushButton_31->setStyleSheet("background-color:gray;");
     ui->pushButton_32->setStyleSheet("background-color:gray;");
     ui->pushButton_33->setStyleSheet("background-color:gray;");
+    ui->pushButton_34->setStyleSheet("background-color:gray;");
+    ui->pushButton_35->setStyleSheet("background-color:gray;");
+    ui->pushButton_38->setStyleSheet("background-color:gray;");
+    ui->pushButton_39->setStyleSheet("background-color:gray;");
+    ui->pushButton_40->setStyleSheet("background-color:gray;");
+    ui->pushButton_41->setStyleSheet("background-color:gray;");
+    ui->pushButton_42->setStyleSheet("background-color:gray;");
+}
+
+void lcdDesigner::on_pushButton_38_clicked()
+{
+
+    if(matrix[0][7]++ % 2 == 0)
+        ui->pushButton_38->setStyleSheet("background-color:white;");
+    else
+        ui->pushButton_38->setStyleSheet("background-color:gray;");
+}
+
+void lcdDesigner::on_pushButton_39_clicked()
+{
+
+    if(matrix[1][7]++ % 2 == 0)
+        ui->pushButton_39->setStyleSheet("background-color:white;");
+    else
+        ui->pushButton_39->setStyleSheet("background-color:gray;");
+}
+
+void lcdDesigner::on_pushButton_40_clicked()
+{
+
+    if(matrix[2][7]++ % 2 == 0)
+        ui->pushButton_40->setStyleSheet("background-color:white;");
+    else
+        ui->pushButton_40->setStyleSheet("background-color:gray;");
+}
+
+void lcdDesigner::on_pushButton_41_clicked()
+{
+
+    if(matrix[3][7]++ % 2 == 0)
+        ui->pushButton_41->setStyleSheet("background-color:white;");
+    else
+        ui->pushButton_41->setStyleSheet("background-color:gray;");
+}
+
+void lcdDesigner::on_pushButton_42_clicked()
+{
+
+    if(matrix[4][7]++ % 2 == 0)
+        ui->pushButton_42->setStyleSheet("background-color:white;");
+    else
+        ui->pushButton_42->setStyleSheet("background-color:gray;");
 }

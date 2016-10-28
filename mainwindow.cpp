@@ -636,6 +636,6 @@ void MainWindow::on_actionLCD_Designer_triggered()
 {
     lcdDesigner *lcd = new lcdDesigner();
     lcd->setWindowTitle("LCD Designer");
-    lcd->setFixedSize(179,305);
+    lcd->setFixedSize(179,330);
     lcd->show();
 }

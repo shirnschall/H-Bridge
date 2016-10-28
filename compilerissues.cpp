@@ -26,8 +26,8 @@ void compilerIssues::update(std::vector<QString> issues)
     std::vector<std::string> errors;
 
     //regex for errors
-    QRegExp rx("\\bbuild.c:\\d+: error: .*");
-    QRegExp errorRx("\\bbuild.c:\\d+: error: ");
+    QRegExp rx("\\bbuild.c:\\d.*: error: .*");
+    QRegExp avrdudeRx("\\bavrdude: .* timeout");
     QRegExp buildcRx("\\bbuild.c:");
 
     for(int i=0;i<issues.size();++i)
@@ -44,10 +44,17 @@ void compilerIssues::update(std::vector<QString> issues)
             }while(issues[i][j]>47 && issues[i][j]<58);
             lines.push_back(tmp.toInt());
         }
+        else if(issues[i].contains(avrdudeRx))
+        {
+            tmp=issues[i];
+            ui->listWidget->addItem(new QListWidgetItem(tmp));
+            lines.push_back(0); //no gotoError
+        }
     }
 }
 
 void compilerIssues::on_listWidget_itemDoubleClicked(QListWidgetItem *item)
 {
-    gotoError(lines.at(ui->listWidget->row(item)));
+    if(lines.at(ui->listWidget->row(item))) //check for avrdude error
+        gotoError(lines.at(ui->listWidget->row(item)));
 }
