@@ -190,7 +190,7 @@ void MainWindow::on_actionSave_triggered()
 void MainWindow::on_actionSave_As_triggered()
 {
     //get filename
-    QString filename=QFileDialog::getSaveFileName(this, tr("Save As"), "", "C (*.c);;Header (*.h)");
+    QString filename=QFileDialog::getSaveFileName(this, tr("Save As"), "", "All files (*.*);;C++ (*.cpp)");
     if(filename!="")
     {
         std::cout<<filename.toStdString().c_str()<<std::endl;
@@ -234,7 +234,7 @@ void MainWindow::on_actionSave_As_triggered()
 void MainWindow::on_actionOpen_triggered()
 {
     //get filename
-    QString filename=QFileDialog::getOpenFileName(this, tr("Save As"), "", "C (*.c);;Header (*.h)");
+    QString filename=QFileDialog::getOpenFileName(this, tr("Save As"), "", "All files (*.*);;C++ (*.cpp)");
     std::cout<<filename.toStdString().c_str()<<std::endl;
     bool open{true};
     //check if fil is open
@@ -643,20 +643,6 @@ void MainWindow::on_actionLCD_Designer_triggered()
 
 void MainWindow::closeEvent (QCloseEvent *event)
 {
-//    bool saved=true;
-
-//    for(int i=0;i<ui->listWidget->count();++i)
-//    {
-//        if(ui->listWidget->item(i)->text().endsWith('*'))
-//        {
-//            saved=false;
-//            break;
-//        }
-//    }
-
-//    if(saved)
-//        event->accept();
-
     QMessageBox::StandardButton resBtn = QMessageBox::question( this, "HBridge",
                                                                 tr("<font color=\"#000\">Save open documents?</font>"),
                                                                 QMessageBox::Cancel | QMessageBox::No | QMessageBox::Yes,
@@ -697,7 +683,7 @@ void MainWindow::on_actionSave_All_triggered()
         {
             continue;   //skip default...
         }
-        else
+        else300
         {
             //get filename
             QString filename=QFileDialog::getSaveFileName(this, tr("Save As"), "", "C (*.c);;Header (*.h)");

@@ -121,6 +121,20 @@ Highlighter::Highlighter(QTextDocument *parent)
                   << "<threads.h>"
                   << "<uchar.h>";
 
+    QStringList preprocessor;
+
+    preprocessor    << "#include"
+                    << "#define"
+                    << "#undef"
+                    << "#ifdef"
+                    << "#ifndef"
+                    << "#if"
+                    << "#else"
+                    << "#elif"
+                    << "#endif"
+                    << "#error"
+                    << "#prgma";
+
     //read styles:
     std::vector<std::string> colors;
 
@@ -148,9 +162,11 @@ Highlighter::Highlighter(QTextDocument *parent)
 
     //#INCLUDE
     includeFormat.setForeground(QColor(colors.at(1).c_str()));
-    rule.pattern = QRegExp("#include\\b");
-    rule.format = includeFormat;
-    highlightingRules.append(rule);
+    foreach (const QString &pattern, preprocessor) {
+        rule.pattern = QRegExp(pattern);
+        rule.format = includeFormat;
+        highlightingRules.append(rule);
+    }
 
 
     //QUOTATION

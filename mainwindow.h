@@ -64,8 +64,12 @@ private slots:
 
     void on_actionLCD_Designer_triggered();
 
+    void on_actionSave_All_triggered();
+
 protected:
     void resizeEvent(QResizeEvent *event) Q_DECL_OVERRIDE;
+
+    void closeEvent (QCloseEvent *event) Q_DECL_OVERRIDE;
 
 private:
     void openFile(std::string);
