@@ -12,7 +12,7 @@ Still a messy codebase, but once every feature is working properly I will work o
 - [x] edit multiple files at once
 - [x] upload to isp
 - [x] LCD Designer
-- [ ] compiler
+- [x] compiler
 - [ ] settings (maybe json)
 - [ ] autosave backup
 - [ ] serial monitor
