@@ -32,13 +32,15 @@
 #include <QMenu>
 #include <QTextCursor>
 
+#include "firststart.h"
+
 QMutex mutex;
 
 using namespace std;
 
 std::vector<std::string>    wordsToComplete,
                             defaultWordlist,
-                            type    {"class" , "struct" , "double" , "int" , "void" , "long" , "float" , "short" , "unsigned" , "extern" , "char" ,"#define"};
+                            type    {"class" , "struct" , "double" , "int" , "void" , "long" , "float" , "short" , "unsigned" , "signed" , "extern" , "char" , "#define" , "typedef"};
 
 std::vector<std::vector<std::string>> functions;
 
@@ -80,6 +82,11 @@ MainWindow::MainWindow(QWidget *parent) :
 
     connect(cissues,SIGNAL(gotoError(int)),this,SLOT(gotoError(int)));
 
+
+    //firststart
+    firstStart configureDialog;
+    configureDialog.setModal(true);
+    configureDialog.exec();
 
     // read ports
     for(QSerialPortInfo port: QSerialPortInfo::availablePorts())
