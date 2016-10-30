@@ -49,3 +49,31 @@ void firstStart::on_pushButton_7_clicked()
     QString dirname = QFileDialog::getExistingDirectory(this,tr("Select lib folder"),ui->lineEdit_4->text(),QFileDialog::ShowDirsOnly|QFileDialog::DontResolveSymlinks);
     ui->lineEdit_4->setText(dirname);
 }
+
+void firstStart::on_pushButton_8_clicked()
+{
+    if(!ui->lineEdit_5->text().isEmpty())
+    {
+        ui->listWidget->addItem(ui->lineEdit_5->text());
+        ui->lineEdit_5->clear();
+    }
+}
+
+void firstStart::on_pushButton_9_clicked()
+{
+    delete ui->listWidget->currentItem();
+}
+
+void firstStart::on_pushButton_12_clicked()
+{
+    if(!ui->lineEdit_7->text().isEmpty())
+    {
+        ui->listWidget_3->addItem(ui->lineEdit_7->text());
+        ui->lineEdit_7->clear();
+    }
+}
+
+void firstStart::on_pushButton_13_clicked()
+{
+    delete ui->listWidget_3->currentItem();
+}

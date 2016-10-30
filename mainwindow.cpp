@@ -7,6 +7,7 @@
 #include "compileroutput.h"
 #include "compilerissues.h"
 #include "lcddesigner.h"
+#include "firststart.h"
 
 #include <stdlib.h>
 #include <fstream>
@@ -32,7 +33,6 @@
 #include <QMenu>
 #include <QTextCursor>
 
-#include "firststart.h"
 
 QMutex mutex;
 
@@ -86,7 +86,9 @@ MainWindow::MainWindow(QWidget *parent) :
     //firststart
     firstStart configureDialog;
     configureDialog.setModal(true);
+    configureDialog.setWindowTitle("HBridge");
     configureDialog.exec();
+
 
     // read ports
     for(QSerialPortInfo port: QSerialPortInfo::availablePorts())
